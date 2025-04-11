@@ -3,64 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pagamento via Pix</title>
+  <title>Pagamento Pix</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      padding: 20px;
+      background-color: #f2f2f2;
       text-align: center;
+      padding: 40px 20px;
     }
+
     h1 {
       color: #333;
     }
+
     #qrcode {
-      margin: 20px 0;
-      padding: 10px;
-      background: white;
+      margin: 30px auto;
+      padding: 15px;
+      background-color: #fff;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: fit-content;
     }
+
     button {
-      background-color: #5c67f2;
+      background-color: #4CAF50;
       color: white;
-      border: none;
       padding: 12px 20px;
-      font-size: 16px;
+      border: none;
       border-radius: 8px;
+      font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.2s ease;
+      margin-top: 20px;
     }
+
     button:hover {
-      background-color: #4a54d1;
+      background-color: #45a049;
     }
+
     .chave {
-      margin-top: 10px;
+      margin-top: 15px;
       font-size: 14px;
-      color: #555;
-      word-break: break-all;
+      word-break: break-word;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <h1>Pagamento via Pix</h1>
+  <h1>Escaneie o QR Code para pagar com Pix</h1>
+
   <div id="qrcode"></div>
+
   <button onclick="copiarPix()">📋 Copiar chave Pix</button>
   <p class="chave" id="chavePix">3a1b1714-6a8d-4704-8514-fb537bf3e2ca</p>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
   <script>
     const chavePix = "3a1b1714-6a8d-4704-8514-fb537bf3e2ca";
-    const qr = new QRious({
-      element: document.getElementById('qrcode'),
+    new QRious({
+      element: document.getElementById("qrcode"),
       value: chavePix,
-      size: 200
+      size: 220
     });
 
     function copiarPix() {
