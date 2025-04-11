@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pagamento via Pix</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    .pix-key {
+      background: #e6f7ff;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      word-break: break-all;
+    }
+    button {
+      background: #00b894;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #019875;
+    }
+    .qr-link {
+      margin-top: 20px;
+      display: block;
+      color: #0984e3;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pagamento via Pix</h1>
+    <p class="pix-key" id="pixKey">3a1b1714-6a8d-4704-8514-fb537bf3e2ca</p>
+    <button onclick="copyPixKey()">Copiar chave Pix</button>
+    <a class="qr-link" href="https://gerarqrcodepix.com.br/?chave=3a1b1714-6a8d-4704-8514-fb537bf3e2ca&nome=Débora%20da%20Conceição%20Souza&cidade=Salvador" target="_blank">Ou clique aqui para abrir o QR Code</a>
+  </div>
+
+  <script>
+    function copyPixKey() {
+      const key = document.getElementById("pixKey").textContent;
+      navigator.clipboard.writeText(key).then(() => {
+        alert("Chave Pix copiada com sucesso!");
+      });
+    }
+  </script>
+</body>
+</html>
